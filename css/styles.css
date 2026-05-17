@@ -98,6 +98,30 @@ body.light .navegacion-principal {
   }
 }
 
+@media (min-width: 480px) {
+  .navegacion-principal {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+@media (min-width: 1140px) {
+  .navegacion-principal {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+@media (min-width: 1400px) {
+  .navegacion-principal {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
 .hero {
   background-image: url(../img/Proyecto_del_Mundo.webp);
   background-repeat: no-repeat;
@@ -274,6 +298,7 @@ p {
   animation-play-state: paused;
 }
 
+/*Clases copiadas del ingeriero porque no me salia*/
 .error {
   background-color: var(--naranja);
   text-align: center;
