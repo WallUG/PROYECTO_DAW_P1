@@ -13,9 +13,31 @@
     <link href="css/styles.css" rel="stylesheet" />
 </head>
 <body>
+    <!-- Se asume que este es el contenedor para mostrar las opiniones -->
+    <section class="contenedor-opiniones">
+        <!-- El div con ID es vital para inyectar usando JS -->
+        <div id="lista-mensajes" class="carrusel-mensajes">
+            <!-- Los mensajes se inyectarán aquí por JavaScript -->
+        </div>
+    </section>
+    <button id="modo-oscuro" class="boton-modo">Cambiar Tema</button>
     <section>
-        <h1 id="titulo-pelicula">Project Hail Mary</h1>
+        <div>
+            <h1 id="titulo-pelicula">Project Hail Mary</h1>
+        </div>
+    </section>
+
+    <section>
+        <div class="nav-bg"></div>
+            <nav class="navegacion-principal contenedor">
+                <a href="index.html">Inicio</a>
+                <a href="galeria.html">Galería</a>
+                <a href="mensajes.html">Opiniónes</a>
+            </nav>
+        </div>
+
         <p>Mi película favorita es "Project Hail Mary". Es una emocionante historia de ciencia ficción que combina elementos de aventura y misterio. La trama sigue a un astronauta que se despierta solo en una nave espacial, sin recordar quién es ni cómo llegó allí. A medida que recupera sus recuerdos, descubre que es la última esperanza de la humanidad para salvar la Tierra de una catástrofe inminente.</p>
+
     </section>
 
     <section class="hero">
@@ -23,7 +45,7 @@
             <p>Project Hail Mary</p>
             <img src="img/player-play.svg" alt="Icono de reproducción" />
             <p>Género: Ciencia ficción</p>
-            <a class="boton" href="https://www.youtube.com/watch?v=XxEIpNBfIEo" target="_blank" >Ver Trailer</a>
+            <a href="https://www.youtube.com/watch?v=XxEIpNBfIEo" target="_blank" >Ver Trailer</a>
         </div>
     </section>
 
@@ -66,4 +88,5 @@
     </footer>
 
 </body>
+<script src="js/scripts_system.js"></script>
 </html>

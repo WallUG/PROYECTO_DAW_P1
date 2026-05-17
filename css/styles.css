@@ -22,11 +22,80 @@ body {
   margin: 0;
   padding: 20px;
 }
+/* Modo claro - Al parecer de esta forma se puede separar los colores para diferentes temas */
+body.light {
 
-.container {
+  /*colores obtendios mediante un analizador de temas en modo ia*/
+  /*no se mucho de colores*/
+  --fondo-principal:   #eef2f7;   /* azul grisáceo muy claro, no blanco puro */
+  --fondo-tarjeta:     #dde6f0;   /* tarjetas con leve tono frío */
+  --fondo-acento:      #c8d8e8;   /* acento más profundo, bordes y secciones */
+
+  --amarillo:          #b8860b;   /* dorado oscurecido para que contraste en fondo claro */
+  --cyan:              #0077a8;   /* cyan más oscuro y legible */
+  --naranja:           #c05c20;   /* naranja bajado de tono para legibilidad */
+
+  --texto-principal:   #0d1b2a;   /* casi negro azulado, no negro puro */
+  --texto-secundario:  #3a5068;   /* azul marino medio */
+  --texto-parrafo:     #2c3e50;   /* texto cuerpo oscuro y legible */
+}
+
+.contenedor {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 20px;
+  padding: 0 20px;
+  height: 64px;
+  /*margin: 0 auto 0 auto;    */
+  /* margin: 0 auto   */
+
+  border-bottom: 1px solid var(--cyan);        /* línea inferior para marcar un limite */
+  box-shadow: 0 2px 16px rgba(56, 217, 245, 0.08); 
+}
+
+/*Posicionamos el voton hacia el lado derecho*/
+.boton-modo {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background-color: var(--fondo-acento);
+  color: var(--texto-principal);
+  border: 1px solid var(--cyan);
+}
+
+.nav-bg {
+  background-color: var(--secundario);
+}
+
+.navegacion-principal {
+  display: flex;
+  flex-direction: row; /*Por defecto es row*/
+  align-items: center; /*el justify de columns*/
+}
+
+/* con body.light se establece los colores claros*/
+/* Sin esto el menu no se aprecia en modo claro */
+body.light .navegacion-principal {
+  background-color: rgba(200, 216, 232, 0.90);
+  border-bottom: 1px solid var(--cyan);
+  box-shadow: 0 2px 16px rgba(0, 119, 168, 0.10);
+}
+
+.navegacion-principal a {
+  color: var(--texto-principal);
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-family: 'Exo 2', sans-serif;
+  letter-spacing: 0.5px;
+  transition: color 0.2s ease;
+  position: relative !important;
+}
+
+@media (min-width: 768px) {
+  .navegacion-principal {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
 }
 
 .hero {
@@ -106,4 +175,118 @@ li {
 p {
     text-align: justify;
     color: var(--texto-principal);
+}
+
+.contenedor-galeria {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.galeria {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+/* Sin esto todas las imagenes se van al trasto*/
+.galeria img {
+  width: 300px;         /* Ancho fijo para todas las imágenes */
+  height: 200px;        /* Alto fijo para todas las imágenes */
+  /* el width y height fijos son necesarios debido a que la imagenes no son del mismo tamaño jajaj */
+  object-fit: cover;    /* Esto es fundamental evita que al forzar la imagen este se deforme */
+  border-radius: 8px;   /* Simple estetica, bordes redondeados */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3); /* Sombra para mas palcer-Homero*/
+}
+
+.contenedor-formulario {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  border: 1px solid var(--cyan);
+}
+
+.contenedor-formulario form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  border-radius: 8px;
+  background-color: var(--fondo-seccion);
+}
+
+.boton {
+  background-color: var(--cyan);
+  color: var(--texto-principal);
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Contenedor principal que oculta el desbordamiento (lo que sale de la pantalla) */
+.contenedor-opiniones {
+  width: 100%;             /* Ocupa todo el ancho */
+  overflow: hidden;        /* Oculta lo que sale por los bordes */
+  white-space: nowrap;     /* Evita que los mensajes salten a la siguiente línea */
+  background-color: var(--fondo-tarjeta);
+  padding: 15px 0;
+  margin: 40px 0;          /* Margen arriba y abajo */
+  position: relative;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+/* El elemento interno que realmente se va a mover */
+.carrusel-mensajes {
+  display: inline-block;
+  /* La animación dura 20 segundos, es lineal (misma velocidad) e infinita */
+  animation: moverMarquesina 20s linear infinite;
+}
+
+/* Tarjeta individual del mensaje */
+.mensaje-item {
+  display: inline-block;
+  margin: 0 30px;
+  font-size: 1.2rem;
+  color: var(--texto-principal);
+}
+
+/* Destacar el nombre del usuario */
+.mensaje-item span {
+  font-weight: bold;
+  color: var(--amarillo);
+}
+
+/* Animación: Mueve el bloque desde fuera de la derecha hasta salir por la izquierda */
+@keyframes moverMarquesina {
+  0% {
+    transform: translateX(100vw); /* Inicia justo fuera de la pantalla a la derecha */
+  }
+  100% {
+    transform: translateX(-100%); /* Termina cuando todo el contenido ha salido por la izquierda */
+  }
+}
+
+/* Pausar la animación cuando el usuario pone el ratón encima para poder leer */
+.contenedor-opiniones:hover .carrusel-mensajes {
+  animation-play-state: paused;
+}
+
+.error {
+  background-color: var(--naranja);
+  text-align: center;
+  padding: 2rem;
+  font-weight: bold;
+  color: white;
+  border-radius: 1rem;
+}
+.correcto {
+  background-color: var(--cyan);
+  text-align: center;
+  padding: 2rem;
+  font-weight: bold;
+  color: white;
+  border-radius: 1rem;
 }
