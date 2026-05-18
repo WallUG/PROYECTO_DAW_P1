@@ -68,8 +68,10 @@ body.light {
 
 .navegacion-principal {
   display: flex;
-  flex-direction: row; /*Por defecto es row*/
-  align-items: center; /*el justify de columns*/
+  flex-direction: column; /* Apila los enlaces uno debajo del otro en teléfonos */
+  align-items: center;
+  gap: 15px;              /* Espacio vital entre los botones */
+  padding: 15px 0;
 }
 
 /* con body.light se establece los colores claros*/
@@ -90,35 +92,19 @@ body.light .navegacion-principal {
   position: relative !important;
 }
 
-@media (min-width: 760px) {
+/* DISEÑO PARA TABLETS Y PC (Al pasar de 768px de ancho) */
+@media (min-width: 768px) {
   .navegacion-principal {
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
+    flex-direction: row;               /* Los pone uno al lado del otro */
+    justify-content: space-evenly;     /* Distribuye el espacio entre ellos */
+    padding: 20px 0;
+    height: 100%;
   }
 }
 
-@media (min-width: 412px) {
-  .navegacion-principal {
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-  }
-}
-
-@media (min-width: 1140px) {
-  .navegacion-principal {
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-  }
-}
-
-@media (min-width: 1400px) {
-  .navegacion-principal {
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
+@media (min-width: 768px) {
+  .hero {
+    height: 450px; /* Recupera su altura original en pantallas grandes */
   }
 }
 
@@ -283,6 +269,8 @@ p {
   color: var(--amarillo);
 }
 
+/*Animacion aprendida en el canal de SocraTech https://youtu.be/j1bDn01jio8?si=DiS58VKHwNkY-LEO 
+Es muy bueno para aprender cosas mas avanzadas de css y html */
 /* Animación: Mueve el bloque desde fuera de la derecha hasta salir por la izquierda */
 @keyframes moverMarquesina {
   0% {
