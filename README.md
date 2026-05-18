@@ -9,3 +9,7 @@ aplicando los principios fundamentales del desarrollo web, integrando estructura
 semánticas con HTML5, estilos con CSS3, e interactividad mediante JavaScript. El 
 sitio debe funcionar bajo la arquitectura cliente y reflejar conocimientos de las 
 unidades 1, 2 y 3. 
+
+### Autores
+Gustavo Alfredo Garcia Gomez
+Josue Rafael Chichanda Velasquez

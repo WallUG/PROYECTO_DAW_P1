@@ -63,7 +63,7 @@ function mostrarMensajes() {
     const div = document.createElement("div");
     div.classList.add("mensaje-item");
     
-    // Suponiendo que el formato sea "Juan: Me encantó la película"
+    // Suponiendo que los usuarios si utilisen el formato "Juan: Me encantó la película"
     div.innerHTML = `<span>${opinion.nombre}:</span> ${opinion.mensaje}`;
     
     contenedor.appendChild(div);
